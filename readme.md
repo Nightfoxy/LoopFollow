@@ -1,6 +1,26 @@
 ## Loop Follow 
 ![screenshot](https://user-images.githubusercontent.com/38429455/93782187-436e8880-fbf8-11ea-8709-e2afba692132.png)
 
+### To begin building: 
+
+1. Open Terminal
+2. copy/paste this code into terminal and hit enter: `/bin/bash -c "$(curl -fsSL https://git.io/JTKEt)"`
+3. Follow instructions in terminal
+4. Plugin your phone or ipad, select your signing team, select your phone or ipad or "my mac" (Big Sur only), and click play.
+
+If you build to MacOS Big Sur, after building you need to copy the app to your applications folder:
+1. Click stop to close the running app
+2. Right click on "Loop Follow.app" in the left side of xcode by clicking to the Loop Follow/Products/ folder
+3. Select Show in Finder
+4. Drag the Loop Follow.app icon to your Applications folder in finder.
+5. From Mac system settings/notifications, scroll down to Loop Follow and enable notifications with the options you want. For instance, Badge app icon will allow the BG reading to display on the icon.
+
+** Big Sur **
+Some things do not work correctly yet in Big Sur
+- Background Refresh. Mac apps stay open when minimized, so this is unneeded. Please disable the toggle switch.
+- Disable Keep Screen Active. I haven't tested, but doubt this will do anything.
+- Watch/Carplay calendar selection does not work
+- Alarms will not override the Mac volume or mute.
 
 Using so many different apps as a parent or caregiver of a T1D can be very cumbersome. Add in the extra details from Looping
 and it can be a challenge flipping back and forth between apps. Each app has different strengths and weaknesses.
@@ -13,7 +33,7 @@ And there are some functions I've always wished for and not found anywhere such 
 for those nights when Loop is stuck on high and you open loop with a correction. This lets you set a higher
 low alert for the BG you want to wake up to and close Loop.
 
-Build Instruction Video: https://youtu.be/sdF5v2eGGyA
+Build Instruction Video: https://youtu.be/s07QPZ7xycY
 
 Special thanks to Spike-App, NSApple, and Nightguard for helping me figure out how to do a lot of the code for this.
 

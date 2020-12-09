@@ -41,7 +41,10 @@ class SettingsViewController: FormViewController {
             overrideUserInterfaceStyle = .dark
         }
     
-        
+        var expiration: Date = Date()
+        if let provision = MobileProvision.read() {
+            expiration = provision.expirationDate
+        }
                         
         form
         +++ Section(header: "Nightscout Settings", footer: "Changing Nightscout settings requires an app restart.")
@@ -171,23 +174,37 @@ class SettingsViewController: FormViewController {
            ), onDismiss: nil)
             
         }
+            <<< LabelRow("Clear Images"){ row in
+                row.title = "Delete Watch Face Images"
+            }.onCellSelection{ cell,row  in
+                if UserDefaultsRepository.saveImage.value {
+                    guard let mainScreen = self.tabBarController!.viewControllers?[0] as? MainViewController else { return }
+                    
+                    mainScreen.deleteOldImages()
+                    mainScreen.saveChartImage()
+                }
+            }
         
-       +++ Section("Debug Settings")
+       +++ Section("Advanced Settings")
         <<< ButtonRow() {
-           $0.title = "Configure Debug"
+           $0.title = "Advanced Settings"
            $0.presentationMode = .show(
                controllerProvider: .callback(builder: {
-                  let controller = DebugSettingsViewController()
+                  let controller = AdvancedSettingsViewController()
                   controller.appStateController = self.appStateController
                   return controller
                }
            ), onDismiss: nil)
             
         }
+  
+    
+            +++ Section(header: "App Expiration", footer: String(expiration.description))
     
         showHideNSDetails()
       
     }
     
     
+
 }
